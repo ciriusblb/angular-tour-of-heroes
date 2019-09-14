@@ -1,0 +1,28 @@
+<h2>
+  My Heroes
+</h2>
+<div>
+    <label>Hero name:
+      <input #heroName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(heroName.value); heroName.value=''">
+      add
+    </button>
+  </div>
+
+
+ <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero"
+          (click)="delete(hero)">x</button>
+      </li>
+    </ul>
+<!-- [(ngModel)] direcitva angular, permite un enlace bidireccional entre la propiedad de un archivo.ts y un archivo.html. --> 
+<!-- La *ngFores la directiva de repetidores de Angular . Repite el elemento host (la etiqueta) para cada elemento en una lista. -->
+<!-- [class.selected]: Puede alternar una clase de estilo CSS con un classenlace. -->
+
+<!-- <app-hero-detail [hero] = "selectedHero"></app-hero-detail> -->
